@@ -1,36 +1,3 @@
-local CoreGui = game:GetService("CoreGui")
-
--- Создаем ScreenGui
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "CustomBannerGui"
-ScreenGui.ResetOnSpawn = false
-
--- Защита GUI
-if gethui then
-	ScreenGui.Parent = gethui()
-elseif syn and syn.protect_gui then
-	syn.protect_gui(ScreenGui)
-	ScreenGui.Parent = CoreGui
-else
-	ScreenGui.Parent = CoreGui
-end
-
--- Создаем и настраиваем картинку
-local ImageLabel = Instance.new("ImageLabel")
-ImageLabel.Name = "BannerImage"
-ImageLabel.Parent = ScreenGui
-
--- Позиционирование в правом нижнем углу
-ImageLabel.AnchorPoint = Vector2.new(1, 1)
-ImageLabel.Position = UDim2.new(1, -20, 1, -20)
-ImageLabel.Size = UDim2.new(0, 150, 0, 150) -- Размер 150x150 (можно изменить)
-
--- Настройки отображения
-ImageLabel.BackgroundTransparency = 1
-ImageLabel.Image = "rbxassetid://109806421341269"
-ImageLabel.ScaleType = Enum.ScaleType.Fit
-ImageLabel.Visible = true
-
 
 do
 	local Constant = 'L'..'P'..'H'..'_NO_VIRTUALIZE';
