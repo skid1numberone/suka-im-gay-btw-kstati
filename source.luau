@@ -2,10 +2,10 @@ local CoreGui = game:GetService("CoreGui")
 
 -- Создаем ScreenGui
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "WatermarkLogoGui"
+ScreenGui.Name = "CustomBannerGui"
 ScreenGui.ResetOnSpawn = false
 
--- Защита GUI от обнаружения игры
+-- Защита GUI
 if gethui then
 	ScreenGui.Parent = gethui()
 elseif syn and syn.protect_gui then
@@ -17,21 +17,19 @@ end
 
 -- Создаем и настраиваем картинку
 local ImageLabel = Instance.new("ImageLabel")
-ImageLabel.Name = "WatermarkLogo"
+ImageLabel.Name = "BannerImage"
 ImageLabel.Parent = ScreenGui
 
--- Привязываем к правому нижнему углу с отступом в 20 пикселей от краев
+-- Позиционирование в правом нижнем углу
 ImageLabel.AnchorPoint = Vector2.new(1, 1)
 ImageLabel.Position = UDim2.new(1, -20, 1, -20)
+ImageLabel.Size = UDim2.new(0, 150, 0, 150) -- Размер 150x150 (можно изменить)
 
--- Размер картинки (100x100 пикселей)
-ImageLabel.Size = UDim2.new(0, 100, 0, 100)
-
--- Прозрачный фон и указанный Asset ID
+-- Настройки отображения
 ImageLabel.BackgroundTransparency = 1
 ImageLabel.Image = "rbxassetid://109806421341269"
 ImageLabel.ScaleType = Enum.ScaleType.Fit
-
+ImageLabel.Visible = true
 
 
 do
