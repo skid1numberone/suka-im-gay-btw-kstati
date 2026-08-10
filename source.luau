@@ -1,10 +1,38 @@
---[[
-                          Neverlose.cc UI Library
-    Author: 4lpaca
-	License: MIT
-    Discord: https://arceney.win/discord
-    Other-Projects: https://4lpaca.win
-]]
+local CoreGui = game:GetService("CoreGui")
+
+-- Создаем ScreenGui
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "WatermarkLogoGui"
+ScreenGui.ResetOnSpawn = false
+
+-- Защита GUI от обнаружения игры
+if gethui then
+	ScreenGui.Parent = gethui()
+elseif syn and syn.protect_gui then
+	syn.protect_gui(ScreenGui)
+	ScreenGui.Parent = CoreGui
+else
+	ScreenGui.Parent = CoreGui
+end
+
+-- Создаем и настраиваем картинку
+local ImageLabel = Instance.new("ImageLabel")
+ImageLabel.Name = "WatermarkLogo"
+ImageLabel.Parent = ScreenGui
+
+-- Привязываем к правому нижнему углу с отступом в 20 пикселей от краев
+ImageLabel.AnchorPoint = Vector2.new(1, 1)
+ImageLabel.Position = UDim2.new(1, -20, 1, -20)
+
+-- Размер картинки (100x100 пикселей)
+ImageLabel.Size = UDim2.new(0, 100, 0, 100)
+
+-- Прозрачный фон и указанный Asset ID
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Image = "rbxassetid://109806421341269"
+ImageLabel.ScaleType = Enum.ScaleType.Fit
+
+
 
 do
 	local Constant = 'L'..'P'..'H'..'_NO_VIRTUALIZE';
