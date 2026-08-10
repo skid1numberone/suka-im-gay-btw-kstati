@@ -6685,39 +6685,3 @@ function NeverLose:Unload()
 end;
 
 return NeverLose;
-
--- ==========================================
--- Картинка в правом нижнем углу экрана (250x250)
--- ==========================================
-local CornerBanner = Instance.new("ImageLabel")
-CornerBanner.Name = "CornerBanner"
-
--- Привязываем баннер к ScreenGui библиотеки NeverLose
-CornerBanner.Parent = NeverLose.ScreenGui or (gethui and gethui()) or game:GetService("CoreGui")
-
--- Позиция (правый нижний угол) и размер
-CornerBanner.AnchorPoint = Vector2.new(1, 1)
-CornerBanner.Position = UDim2.new(1, -20, 1, -20)
-CornerBanner.Size = UDim2.new(0, 250, 0, 250)
-
--- Настройки прозрачности и отображения
-CornerBanner.BackgroundTransparency = 1
-CornerBanner.BorderSizePixel = 0
-CornerBanner.ScaleType = Enum.ScaleType.Fit
-
--- Загрузка текстуры
-local rawId = "119130185813896"
-
-task.spawn(function()
-	local success, response = pcall(function()
-		return game:HttpGet("https://assetdelivery.roblox.com/v1/asset/?id=" .. rawId)
-	end)
-	
-	if success and response then
-		local imageId = response:match('<url>http://www.roblox.com/asset/%?id=(%d+)</url>') 
-                     or response:match('id=(%d+)')
-		CornerBanner.Image = "rbxassetid://" .. (imageId or rawId)
-	else
-		CornerBanner.Image = "rbxassetid://" .. rawId
-	end
-end)
