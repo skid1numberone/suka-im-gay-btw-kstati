@@ -6153,12 +6153,12 @@ function NeverLose:CreateNotification()
 	NeverLose.__Notification_Cache = Notifier;
 
 	function Notifier.new(Config)
-		Config = NeverLose:ProcessParams(Config , {
-			Title = "Notification",
-			Content = "Hello World!",
-			Logo = NeverLose.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
-			Duration = 5,
-		});
+    Config = NeverLose:ProcessParams(Config , {
+        Title = "Notification",
+        Content = "Hello World!",
+        Logo = (NeverLose.GlobalLogo and NeverLose.GlobalLogo ~= "") and NeverLose.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
+        Duration = 5,
+    });
 
 		if NeverLose.__WatermarkCache then
 			NeverLose.PlayAnimate(Notification,SlowyTween , {
