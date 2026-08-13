@@ -6156,7 +6156,7 @@ function NeverLose:CreateNotification()
 		Config = NeverLose:ProcessParams(Config , {
 			Title = "Notification",
 			Content = "Hello World!",
-			Logo = NeverLose.GlobalLogo
+			Logo = NeverLose.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
 			Duration = 5,
 		});
 
