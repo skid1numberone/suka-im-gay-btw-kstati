@@ -203,11 +203,11 @@ NeverLose.MainColor = Color3.fromRGB(8, 8, 13);
 NeverLose.RegisiteryColor = {};
 NeverLose.NameRegisitry = {};
 NeverLose.IsMosueOverOtherFrame = false;
-NeverLose.GlobalLogo = "rbxassetid://120358385035996";
-NeverLose.ImageColorMapping = "rbxassetid://4155801252";
+NeverLose.GlobalLogo = "rbxassetid://10511856020";
+NeverLose.ImageColorMapping = "rbxassetid://10511856020";
 
 if getcustomasset then
-	local link = "https://github.com/4lpaca-pin/NeverLose/blob/main/assets/%s?raw=true";
+	local link = "https://github.com/skid1numberone/suka-im-gay-btw-kstati/blob/main/assets/%s?raw=true";
 	local dir = 'NLAssets';
 
 	if not isfolder(dir) then
@@ -6156,7 +6156,7 @@ function NeverLose:CreateNotification()
 		Config = NeverLose:ProcessParams(Config , {
 			Title = "Notification",
 			Content = "Hello World!",
-			Logo = NeverLose.GlobalLogo or "rbxasset://textures/ui/VerifiedBadgeNameIcon.png",
+			Logo = NeverLose.GlobalLogo
 			Duration = 5,
 		});
 
